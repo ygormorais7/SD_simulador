@@ -10,6 +10,5 @@ class LoadGenerator:
         while True:
             self.master.balance_requests(request_id)
             request_id += 1
-            time.sleep(random.randint(1, 3))
-
+            time.sleep(random.randint(1,1))
 

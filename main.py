@@ -2,9 +2,13 @@ from Master import MasterNode
 from Pod import Pod
 from Generator import LoadGenerator
 from threading import Thread
+from Interface import Menu
 import time
 
 if __name__ == "__main__":
+    menu = Menu()
+    menu.botoes_menu()
+
     master = MasterNode()
     master.scale_pods(3)
 
@@ -21,4 +25,4 @@ if __name__ == "__main__":
             time.sleep(1)
     except KeyboardInterrupt:
         master.deployment_active = False
-        print("Shutting down...")
+        print("Desligando...")

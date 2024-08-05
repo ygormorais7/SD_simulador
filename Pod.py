@@ -1,4 +1,5 @@
 import time
+import random
 
 class Pod:
     def __init__(self, name):
@@ -7,6 +8,7 @@ class Pod:
         self.processing = []
         self.capacity = 10  # número máximo de processos para rodar
         self.status = 'Rodando'
+        self.threads = []
 
     # Pod recebe um request e se possuir capacidade aceita
     def add_request(self, request):
@@ -21,8 +23,8 @@ class Pod:
             if (self.requests) and (len(self.processing) < self.capacity):
                 request = self.requests.pop(0)
                 self.processing.append(request)
-                print(f"{self.name} processando a requisicao {request}")
-                time.sleep(15)  # Simula o tempo de processamento
+                print(f">>> {self.name} processando a requisicao {request}")
+                time.sleep(random.randint(5, 7))  # Simula o tempo de processamento
                 self.processing.remove(request)
-                print(f"{self.name} completou a requisicao {request}")
+                print(f"--- {self.name} completou a requisicao {request}")
             time.sleep(5)
